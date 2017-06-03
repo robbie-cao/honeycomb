@@ -316,13 +316,13 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\..\Inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32L4xx\Include</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4xx_Nucleo</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\Components\Common</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS</state>
-          <state>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\Drivers\CMSIS\Device\ST\STM32L4xx\Include</state>
+          <state>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\Drivers\BSP\STM32L4xx_Nucleo</state>
+          <state>$PROJ_DIR$\..\..\..\..\Drivers\BSP\Components\Common</state>
+          <state>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F</state>
+          <state>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS</state>
+          <state>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\include</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1000,41 +1000,41 @@
       <group>
         <name>STM32L4xx_Nucleo</name>
         <file>
-          <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\BSP\STM32L4xx_Nucleo\stm32l4xx_nucleo.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\Drivers\BSP\STM32L4xx_Nucleo\stm32l4xx_nucleo.c</name>
         </file>
       </group>
     </group>
     <group>
       <name>STM32L4xx_HAL_Driver</name>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dma.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_gpio.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_gpio.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim_ex.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_tim_ex.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc_ex.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_rcc_ex.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr_ex.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_pwr_ex.c</name>
       </file>
     </group>
     <group>
@@ -1051,32 +1051,32 @@
       <group>
         <name>CMSIS_RTOS</name>
         <file>
-          <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\CMSIS_RTOS\cmsis_os.c</name>
         </file>
       </group>
       <group>
         <name>portable</name>
         <file>
-          <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\MemMang\heap_4.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\port.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\port.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\portasm.s</name>
+          <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\portable\IAR\ARM_CM4F\portasm.s</name>
         </file>
       </group>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\list.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\list.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\queue.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\queue.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\tasks.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\tasks.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\..\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\Middlewares\Third_Party\FreeRTOS\Source\timers.c</name>
       </file>
     </group>
   </group>
