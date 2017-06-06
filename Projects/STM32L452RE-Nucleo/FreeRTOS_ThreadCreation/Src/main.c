@@ -56,8 +56,18 @@ typedef enum
   THREAD_1 = 0,
   THREAD_2
 } Thread_TypeDef;
+
+#define I2C_ADDRESS        0x27
+
+/* I2C TIMING Register define when I2C clock source is SYSCLK */
+/* I2C TIMING is calculated in case of the I2C Clock source is the SYSCLK = 80 MHz */
+/* This example use TIMING to 0x00D00E28 to reach 1 MHz speed (Rise time = 120ns, Fall time = 25ns) */
+#define I2C_TIMING      0x00D00E28
+
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
+/* I2C handler declaration */
+I2C_HandleTypeDef I2cHandle;
 /* UART handler declaration */
 UART_HandleTypeDef UartHandle;
 osThreadId LEDThread1Handle, LEDThread2Handle;
@@ -144,6 +154,26 @@ int main(void)
   /* Output a message on Hyperterminal using printf function */
   printf("\n\r UART Printf Example: retarget the C library printf function to the UART\n\r");
   printf("** Test finished successfully. ** \n\r");
+
+  /*##-1- Configure the I2C peripheral ######################################*/
+  I2cHandle.Instance             = I2Cx;
+  I2cHandle.Init.Timing          = I2C_TIMING;
+  I2cHandle.Init.OwnAddress1     = I2C_ADDRESS;
+  I2cHandle.Init.AddressingMode  = I2C_ADDRESSINGMODE_7BIT;
+  I2cHandle.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  I2cHandle.Init.OwnAddress2     = 0xFF;
+  I2cHandle.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  I2cHandle.Init.NoStretchMode   = I2C_NOSTRETCH_DISABLE;
+
+  if(HAL_I2C_Init(&I2cHandle) != HAL_OK)
+  {
+    /* Initialization Error */
+    Error_Handler();
+  }
+
+  /* Enable the Analog I2C Filter */
+  HAL_I2CEx_ConfigAnalogFilter(&I2cHandle,I2C_ANALOGFILTER_ENABLE);
+
 
   /* Thread 1 definition */
   osThreadDef(THREAD_1, LED_Thread1, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
@@ -291,6 +321,25 @@ void SystemClock_Config(void)
   {
     /* Initialization Error */
     while(1);
+  }
+}
+
+/**
+  * @brief  I2C error callbacks.
+  * @param  I2cHandle: I2C handle
+  * @note   This example shows a simple way to report transfer error, and you can
+  *         add your own implementation.
+  * @retval None
+  */
+void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *I2cHandle)
+{
+  /** Error_Handler() function is called when error occurs.
+    * 1- When Slave don't acknowledge it's address, Master restarts communication.
+    * 2- When Master don't acknowledge the last data transferred, Slave don't care in this example.
+    */
+  if (HAL_I2C_GetError(I2cHandle) != HAL_I2C_ERROR_AF)
+  {
+    Error_Handler();
   }
 }
 

@@ -79,6 +79,24 @@ extern "C" {
 #define USARTx_RX_GPIO_PORT              GPIOC
 #define USARTx_RX_AF                     GPIO_AF8_UART4
 
+/* Definition for I2Cx clock resources */
+#define I2Cx                            I2C3
+#define RCC_PERIPHCLK_I2Cx              RCC_PERIPHCLK_I2C3
+#define RCC_I2CxCLKSOURCE_SYSCLK        RCC_I2C3CLKSOURCE_SYSCLK
+#define I2Cx_CLK_ENABLE()               __HAL_RCC_I2C3_CLK_ENABLE()
+#define I2Cx_SDA_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOC_CLK_ENABLE()
+#define I2Cx_SCL_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOC_CLK_ENABLE() 
+
+#define I2Cx_FORCE_RESET()              __HAL_RCC_I2C3_FORCE_RESET()
+#define I2Cx_RELEASE_RESET()            __HAL_RCC_I2C3_RELEASE_RESET()
+
+/* Definition for I2Cx Pins */
+#define I2Cx_SCL_PIN                    GPIO_PIN_0
+#define I2Cx_SCL_GPIO_PORT              GPIOC
+#define I2Cx_SDA_PIN                    GPIO_PIN_1
+#define I2Cx_SDA_GPIO_PORT              GPIOC
+#define I2Cx_SCL_SDA_AF                 GPIO_AF4_I2C3
+
 /* Size of Trasmission buffer */
 #define TXBUFFERSIZE                      (COUNTOF(aTxBuffer) - 1)
 /* Size of Reception buffer */
