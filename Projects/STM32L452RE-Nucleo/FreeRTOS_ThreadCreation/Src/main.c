@@ -46,6 +46,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
+#include <string.h>
 #include "main.h"
 #include "cmsis_os.h"
 
@@ -57,12 +58,18 @@ typedef enum
   THREAD_2
 } Thread_TypeDef;
 
-#define I2C_ADDRESS        0x27
+//#define I2C_ADDRESS        (0x27 << 1)
+//#define I2C_ADDRESS        (0x50 << 1)
+#define I2C_ADDRESS        (0x5A << 1)
 
 /* I2C TIMING Register define when I2C clock source is SYSCLK */
 /* I2C TIMING is calculated in case of the I2C Clock source is the SYSCLK = 80 MHz */
 /* This example use TIMING to 0x00D00E28 to reach 1 MHz speed (Rise time = 120ns, Fall time = 25ns) */
-#define I2C_TIMING      0x00D00E28
+//#define I2C_TIMING      0x00D00E28
+#define I2C_TIMING      0x10909CEC
+
+
+#define I2C_TIMEOUT     10000
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -97,6 +104,37 @@ PUTCHAR_PROTOTYPE
   HAL_UART_Transmit(&UartHandle, (uint8_t *)&ch, 1, 0xFFFF);
 
   return ch;
+}
+
+uint8_t I2C_Read(uint8_t addr, uint8_t *pData, uint8_t len)
+{
+    return (uint8_t)HAL_I2C_Master_Receive(&I2cHandle, addr, pData, len, I2C_TIMEOUT);
+}
+
+uint8_t I2C_Write(uint8_t addr, uint8_t *pData, uint8_t len)
+{
+    return (uint8_t)HAL_I2C_Master_Transmit(&I2cHandle, addr, pData, len, I2C_TIMEOUT);
+}
+
+uint8_t HIH6130_Read(uint16_t* humidity, uint16_t* temperature)
+{
+#define SIZE    9
+  uint8_t res = 0;
+  uint8_t buf[SIZE];
+
+  memset(buf, 0, sizeof(buf));
+//  res = I2C_Write(I2C_ADDRESS, NULL, 0);
+//  printf("I2C W - %d\r\n", res);
+//  HAL_Delay(100);
+  res = I2C_Read(I2C_ADDRESS, buf, SIZE);
+  printf("I2C R - %d\r\n", res);
+  printf("H/T: ");
+  for (int i = 0; i < SIZE; i++) {
+    printf("%02x ", buf[i]);
+  }
+  printf("\r\n");
+
+  return 0;
 }
 
 /**
@@ -175,6 +213,12 @@ int main(void)
   HAL_I2CEx_ConfigAnalogFilter(&I2cHandle,I2C_ANALOGFILTER_ENABLE);
 
 
+  while (1) {
+    uint16_t h, t;
+    HIH6130_Read(&h, &t);
+  HAL_Delay(100);
+  }
+
   /* Thread 1 definition */
   osThreadDef(THREAD_1, LED_Thread1, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
 
@@ -210,8 +254,10 @@ static void LED_Thread1(void const *argument)
 
   for (;;)
   {
+    uint16_t h, t;
+    HIH6130_Read(&h, &t);
     printf("LED_Thread1, tick - %d\r\n", osKernelSysTick());
-    count = osKernelSysTick() + 5000;
+    count = osKernelSysTick() + 2000;
 
     /* Turn on LED2 */
     BSP_LED_On(LED2);
@@ -246,7 +292,7 @@ static void LED_Thread2(void const *argument)
   for (;;)
   {
     printf("LED_Thread2, tick - %d\r\n", osKernelSysTick());
-    count = osKernelSysTick() + 10000;
+    count = osKernelSysTick() + 2000;
 
     /* Turn on LED2 */
     BSP_LED_On(LED2);
