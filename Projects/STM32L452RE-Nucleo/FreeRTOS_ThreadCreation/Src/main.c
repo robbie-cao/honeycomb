@@ -116,20 +116,40 @@ uint8_t I2C_Write(uint8_t addr, uint8_t *pData, uint8_t len)
     return (uint8_t)HAL_I2C_Master_Transmit(&I2cHandle, addr, pData, len, I2C_TIMEOUT);
 }
 
-uint8_t HIH6130_Read(uint16_t* humidity, uint16_t* temperature)
+#define IAQ_CORE_I2C_ADDRESS    (0x5A << 1)
+
+uint8_t IAQ_Core_Read(uint16_t* co2, uint16_t* tvoc)
 {
-#define SIZE    9
   uint8_t res = 0;
-  uint8_t buf[SIZE];
+  uint8_t buf[9];
 
   memset(buf, 0, sizeof(buf));
-//  res = I2C_Write(I2C_ADDRESS, NULL, 0);
-//  printf("I2C W - %d\r\n", res);
-//  HAL_Delay(100);
-  res = I2C_Read(I2C_ADDRESS, buf, SIZE);
-  printf("I2C R - %d\r\n", res);
-  printf("H/T: ");
-  for (int i = 0; i < SIZE; i++) {
+  res = I2C_Read(IAQ_CORE_I2C_ADDRESS, buf, sizeof(buf));
+  printf("IAQ R - %d\r\n", res);
+  printf("Data: ");
+  for (int i = 0; i < sizeof(buf); i++) {
+    printf("%02x ", buf[i]);
+  }
+  printf("\r\n");
+
+  return 0;
+}
+
+#define HIH6130_I2C_ADDRESS        (0x27 << 1)
+
+uint8_t HIH6130_Read(uint16_t* humidity, uint16_t* temperature)
+{
+  uint8_t res = 0;
+  uint8_t buf[4];
+
+  memset(buf, 0, sizeof(buf));
+  res = I2C_Write(HIH6130_I2C_ADDRESS, NULL, 0);
+  printf("I2C W - %d\r\n", res);
+  HAL_Delay(100);
+  res = I2C_Read(HIH6130_I2C_ADDRESS, buf, sizeof(buf));
+  printf("H/T R - %d\r\n", res);
+  printf("Data: ");
+  for (int i = 0; i < sizeof(buf); i++) {
     printf("%02x ", buf[i]);
   }
   printf("\r\n");
@@ -215,6 +235,7 @@ int main(void)
 
   while (1) {
     uint16_t h, t;
+    IAQ_Core_Read(&h, &t);
     HIH6130_Read(&h, &t);
   HAL_Delay(100);
   }
