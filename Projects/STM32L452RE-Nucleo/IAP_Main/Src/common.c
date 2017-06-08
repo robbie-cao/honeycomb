@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    IAP_Main/Src/common.c 
+  * @file    IAP_Main/Src/common.c
   * @author  MCD Application Team
   * @version 1.0.0
   * @date    8-April-2015
@@ -33,7 +33,7 @@
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
   ******************************************************************************
-  */ 
+  */
 
 /** @addtogroup STM32L4xx_IAP_Main
   * @{
@@ -176,11 +176,13 @@ void Serial_PutString(uint8_t *p_string)
   */
 HAL_StatusTypeDef Serial_PutByte( uint8_t param )
 {
+#if 0
   /* May be timeouted... */
   if ( UartHandle.State == HAL_UART_STATE_TIMEOUT )
   {
     UartHandle.State = HAL_UART_STATE_READY;
   }
+#endif
   return HAL_UART_Transmit(&UartHandle, &param, 1, TX_TIMEOUT);
 }
 /**
