@@ -2,13 +2,13 @@
   ******************************************************************************
   * @file    stm32l4xx_hal_conf.h
   * @author  MCD Application Team
-  * @version V1.8.0
-  * @date    21-April-2017
+  * @version 1.0.0
+  * @date    8-April-2015
   * @brief   HAL configuration file.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; COPYRIGHT(c) 2017 STMicroelectronics</center></h2>
+  * <h2><center>&copy; COPYRIGHT(c) 2015 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -99,11 +99,11 @@
   *        (when HSE is used as system clock source, directly or through the PLL).
   */
 #if !defined  (HSE_VALUE)
-  #define HSE_VALUE    ((uint32_t)8000000U) /*!< Value of the External oscillator in Hz */
+  #define HSE_VALUE    ((uint32_t)8000000) /*!< Value of the External oscillator in Hz */
 #endif /* HSE_VALUE */
 
 #if !defined  (HSE_STARTUP_TIMEOUT)
-  #define HSE_STARTUP_TIMEOUT    ((uint32_t)5000U)   /*!< Time out for HSE start up, in ms */
+  #define HSE_STARTUP_TIMEOUT    ((uint32_t)5000)   /*!< Time out for HSE start up, in ms */
 #endif /* HSE_STARTUP_TIMEOUT */
 
 /**
@@ -111,7 +111,7 @@
   *        This value is the default MSI range value after Reset.
   */
 #if !defined  (MSI_VALUE)
-  #define MSI_VALUE    ((uint32_t)4000000U) /*!< Value of the Internal oscillator in Hz*/
+  #define MSI_VALUE    ((uint32_t)4000000) /*!< Value of the Internal oscillator in Hz*/
 #endif /* MSI_VALUE */
 
 /**
@@ -120,14 +120,14 @@
   *        (when HSI is used as system clock source, directly or through the PLL).
   */
 #if !defined  (HSI_VALUE)
-  #define HSI_VALUE    ((uint32_t)16000000U) /*!< Value of the Internal oscillator in Hz*/
+  #define HSI_VALUE    ((uint32_t)16000000) /*!< Value of the Internal oscillator in Hz*/
 #endif /* HSI_VALUE */
 
 /**
   * @brief Internal Low Speed oscillator (LSI) value.
   */
 #if !defined  (LSI_VALUE) 
- #define LSI_VALUE  ((uint32_t)32000U)      /*!< LSI Typical Value in Hz*/
+ #define LSI_VALUE  ((uint32_t)32000)       /*!< LSI Typical Value in Hz*/
 #endif /* LSI_VALUE */                      /*!< Value of the Internal Low Speed oscillator in Hz
                                              The real value may vary depending on the variations
                                              in voltage and temperature.*/
@@ -136,11 +136,11 @@
   *        This value is used by the UART, RTC HAL module to compute the system frequency
   */
 #if !defined  (LSE_VALUE)
-  #define LSE_VALUE    ((uint32_t)32768U) /*!< Value of the External oscillator in Hz*/
+  #define LSE_VALUE    ((uint32_t)32768) /*!< Value of the External oscillator in Hz*/
 #endif /* LSE_VALUE */
 
 #if !defined  (LSE_STARTUP_TIMEOUT)
-  #define LSE_STARTUP_TIMEOUT    ((uint32_t)5000U)  /*!< Time out for LSE start up, in ms */
+  #define LSE_STARTUP_TIMEOUT    ((uint32_t)5000)   /*!< Time out for LSE start up, in ms */
 #endif /* HSE_STARTUP_TIMEOUT */
 
 /**
@@ -149,7 +149,7 @@
   *        frequency.
   */
 #if !defined  (EXTERNAL_SAI1_CLOCK_VALUE)
-  #define EXTERNAL_SAI1_CLOCK_VALUE    ((uint32_t)48000U) /*!< Value of the SAI1 External clock source in Hz*/
+  #define EXTERNAL_SAI1_CLOCK_VALUE    ((uint32_t)48000) /*!< Value of the SAI1 External clock source in Hz*/
 #endif /* EXTERNAL_SAI1_CLOCK_VALUE */
 
 /**
@@ -158,7 +158,7 @@
   *        frequency.
   */
 #if !defined  (EXTERNAL_SAI2_CLOCK_VALUE)
-  #define EXTERNAL_SAI2_CLOCK_VALUE    ((uint32_t)48000U) /*!< Value of the SAI2 External clock source in Hz*/
+  #define EXTERNAL_SAI2_CLOCK_VALUE    ((uint32_t)48000) /*!< Value of the SAI2 External clock source in Hz*/
 #endif /* EXTERNAL_SAI2_CLOCK_VALUE */
 
 /* Tip: To avoid modifying this file each time you need to use different HSE,
@@ -168,28 +168,19 @@
 /**
   * @brief This is the HAL system configuration section
   */
-#define  VDD_VALUE                    ((uint32_t)3300U) /*!< Value of VDD in mv */
-#define  TICK_INT_PRIORITY            ((uint32_t)0x0FU) /*!< tick interrupt priority */
-#define  USE_RTOS                     0U
-#define  PREFETCH_ENABLE              1U
-#define  INSTRUCTION_CACHE_ENABLE     1U
-#define  DATA_CACHE_ENABLE            1U
+#define  VDD_VALUE                    ((uint32_t)3300) /*!< Value of VDD in mv */
+#define  TICK_INT_PRIORITY            ((uint32_t)0x0F) /*!< tick interrupt priority */
+#define  USE_RTOS                     0
+#define  PREFETCH_ENABLE              1
+#define  INSTRUCTION_CACHE_ENABLE     1
+#define  DATA_CACHE_ENABLE            1
 
 /* ########################## Assert Selection ############################## */
 /**
   * @brief Uncomment the line below to expanse the "assert_param" macro in the
   *        HAL drivers code
   */
-/* #define USE_FULL_ASSERT               1U */
-
-/* ################## SPI peripheral configuration ########################## */
-
-/* CRC FEATURE: Use to activate CRC feature inside HAL SPI Driver
- * Activated: CRC code is present inside driver
- * Deactivated: CRC code cleaned from driver
- */
-
-#define USE_SPI_CRC                   1U
+/* #define USE_FULL_ASSERT    1 */
 
 /* Includes ------------------------------------------------------------------*/
 /**
@@ -362,11 +353,11 @@
   *         If expr is true, it returns no value.
   * @retval None
   */
-  #define assert_param(expr) ((expr) ? (void)0U : assert_failed((char *)__FILE__, __LINE__))
+  #define assert_param(expr) ((expr) ? (void)0 : assert_failed((uint8_t *)__FILE__, __LINE__))
 /* Exported functions ------------------------------------------------------- */
-  void assert_failed(char *file, uint32_t line);
+  void assert_failed(uint8_t* file, uint32_t line);
 #else
-  #define assert_param(expr) ((void)0U)
+  #define assert_param(expr) ((void)0)
 #endif /* USE_FULL_ASSERT */
 
 #ifdef __cplusplus

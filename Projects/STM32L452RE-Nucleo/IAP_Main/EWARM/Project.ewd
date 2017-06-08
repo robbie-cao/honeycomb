@@ -89,7 +89,7 @@
         </option>
         <option>
           <name>OCLastSavedByProductVersion</name>
-          <state>7.80.4.12487</state>
+          <state>7.60.1.11206</state>
         </option>
         <option>
           <name>UseFlashLoader</name>
@@ -282,45 +282,12 @@
       </data>
     </settings>
     <settings>
-      <name>CADI_ID</name>
-      <archiveVersion>2</archiveVersion>
-      <data>
-        <version>0</version>
-        <wantNonLocal>1</wantNonLocal>
-        <debug>1</debug>
-        <option>
-          <name>CCadiMemory</name>
-          <state>1</state>
-        </option>
-        <option>
-          <name>Fast Model</name>
-          <state></state>
-        </option>
-        <option>
-          <name>CCADILogFileCheck</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCADILogFileEditB</name>
-          <state>$PROJ_DIR$\cspycomm.log</state>
-        </option>
-        <option>
-          <name>OCDriverInfo</name>
-          <state>1</state>
-        </option>
-      </data>
-    </settings>
-    <settings>
       <name>CMSISDAP_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
-        <option>
-          <name>CatchSFERR</name>
-          <state>1</state>
-        </option>
         <option>
           <name>OCDriverInfo</name>
           <state>1</state>
@@ -565,10 +532,6 @@
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
-          <name>CatchSFERR</name>
-          <state>1</state>
-        </option>
-        <option>
           <name>OCDriverInfo</name>
           <state>1</state>
         </option>
@@ -771,7 +734,7 @@
         <option>
           <name>IjetTraceSizeList</name>
           <version>0</version>
-          <state>4</state>
+          <state>2</state>
         </option>
         <option>
           <name>FlashBoardPathSlave</name>
@@ -794,10 +757,6 @@
         <version>16</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
-        <option>
-          <name>CCCatchSFERR</name>
-          <state>0</state>
-        </option>
         <option>
           <name>JLinkSpeed</name>
           <state>80</state>
@@ -1195,7 +1154,7 @@
       <name>STLINK_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>4</version>
+        <version>3</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1212,8 +1171,8 @@
         </option>
         <option>
           <name>CCSTLinkResetList</name>
-          <version>3</version>
-          <state>4</state>
+          <version>1</version>
+          <state>2</state>
         </option>
         <option>
           <name>CCCpuClockEdit</name>
@@ -1272,10 +1231,6 @@
           <state>0</state>
         </option>
         <option>
-          <name>CCSTLinkCatchSFERR</name>
-          <state>0</state>
-        </option>
-        <option>
           <name>CCSTLinkCatchHARDERR</name>
           <state>0</state>
         </option>
@@ -1294,14 +1249,6 @@
         <option>
           <name>CCSTLinkJtagSpeedList</name>
           <version>0</version>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCSTLinkDAPNumber</name>
-          <state></state>
-        </option>
-        <option>
-          <name>CCSTLinkDebugAccessPortRadio</name>
           <state>0</state>
         </option>
       </data>
@@ -1406,7 +1353,7 @@
       <name>XDS100_ID</name>
       <archiveVersion>2</archiveVersion>
       <data>
-        <version>6</version>
+        <version>5</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -1502,10 +1449,6 @@
           <state>0</state>
         </option>
         <option>
-          <name>CCXds100CatchSFERR</name>
-          <state>0</state>
-        </option>
-        <option>
           <name>CCXds100CatchHARDERR</name>
           <state>0</state>
         </option>
@@ -1559,14 +1502,6 @@
           <name>CCXds100ProbeList</name>
           <version>0</version>
           <state>0</state>
-        </option>
-        <option>
-          <name>CCXds100SWOPortRadio</name>
-          <state>0</state>
-        </option>
-        <option>
-          <name>CCXds100SWOPort</name>
-          <state>1</state>
         </option>
       </data>
     </settings>
